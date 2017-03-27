@@ -1,16 +1,16 @@
 <%@page contentType='text/html' pageEncoding='UTF-8' session='false'%>
-<%@taglib prefix='c' uri="http://java.sun.com/jstl/core"%>
+<%@taglib prefix='c' uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang='nl'>
 <head>
-	<c:import url='head.jsp'>
-		<c:param name='title' value='Pizza Luigi'/>
+	<c:import url='/WEB-INF/JSP/head.jsp'>
+	<c:param name='title' value='Pizza Luigi'/>
 	</c:import>
 </head>
 <body>
 	<c:import url='menu.jsp'/>
 	<h1>Pizza Luigi</h1>
-	<img src='images/pizza.jpg' alt='pizza' class='fullwidth'>
+	<img src=<c:url value='/images/pizza.jpg'/> alt='pizza' class='fullwidth'>
 	<h2>${begroeting}</h2>
 	<h2>De zaakvoerder</h2>
 	<dl>
