@@ -19,15 +19,18 @@ public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String VIEW="/WEB-INF/JSP/index.jsp";
 	private final AtomicInteger aantalKeerBekeken = new AtomicInteger();
-	@Override
+	private static final String INDEX_REQUESTS = "indexrequests";
+		@Override
+	public void init() throws ServletException {
+		this.getServletContext().setAttribute(INDEX_REQUESTS, new AtomicInteger());
+	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
-			request.setAttribute("emailAdresWebMaster", this.getInitParameter("emailAdresWebMaster"));
-			request.setAttribute("aantalKeerBekeken",  aantalKeerBekeken.incrementAndGet());
-			request.setAttribute("zaakvoerder", new Persoon("Luigi", "Peperone", 7, true, 
-					new Adres("Grote Markt", "3", 9700, "Oudenaarde")));
-			request.setAttribute("begroeting", new Begroeting());
-			request.getRequestDispatcher(VIEW).forward(request, response);
-	}
+		request.setAttribute("emailAdresWebMaster", this.getServletContext().getInitParameter("emailAdresWebMaster"));
+		request.setAttribute("aantalKeerBekeken",  aantalKeerBekeken.incrementAndGet());
+		request.setAttribute("zaakvoerder", new Persoon("Luigi", "Peperone", 7, true,   new Adres("Grote markt", "3", 9700, "Oudenaarde"))); 
+		request.getRequestDispatcher(VIEW).forward(request,  response);	
+		((AtomicInteger) this.getServletContext().getAttribute(INDEX_REQUESTS)).incrementAndGet();
+	}	  	  
 }
 		
