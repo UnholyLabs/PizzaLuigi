@@ -29,8 +29,8 @@ public class IndexServlet extends HttpServlet {
 		request.setAttribute("emailAdresWebMaster", this.getServletContext().getInitParameter("emailAdresWebMaster"));
 		request.setAttribute("aantalKeerBekeken",  aantalKeerBekeken.incrementAndGet());
 		request.setAttribute("zaakvoerder", new Persoon("Luigi", "Peperone", 7, true,   new Adres("Grote markt", "3", 9700, "Oudenaarde"))); 
-		request.getRequestDispatcher(VIEW).forward(request,  response);	
 		((AtomicInteger) this.getServletContext().getAttribute(INDEX_REQUESTS)).incrementAndGet();
+		request.getRequestDispatcher(VIEW).forward(request,  response);
 	}	  	  
 }
 		
