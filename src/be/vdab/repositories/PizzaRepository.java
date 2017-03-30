@@ -37,6 +37,4 @@ public class PizzaRepository {
 		pizza.setId(Collections.max(PIZZAS.keySet()) + 1);
 		PIZZAS.put(pizza.getId(), pizza);
  	}
-}
- 	
-	
+}	
