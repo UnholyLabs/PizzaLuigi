@@ -19,7 +19,7 @@
 					<c:url value='/pizzas/detail.htm' var='detailURL'>
 						<c:param name='id' value="${pizza.id}"/>
 					</c:url>
-					<a href="<c:out value='${detailURL}' />">Detail</a>
+					<a href="<c:out value='${detailURL}' />"/>Detail</a>
 				</li>				
 		</c:forEach>
 		</ul>		 
